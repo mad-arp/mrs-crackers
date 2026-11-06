@@ -1,0 +1,19 @@
+{
+  "provider": "brevo",
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "secure": true,
+    "user": "bandirohan43@gmail.com",
+    "pass": ""
+  },
+  "brevo_api_key": "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",
+  "resend_api_key": "",
+  "sender_name": "MRS Crackers",
+  "admin_email": "bandirohan43@gmail.com",
+  "admin_mobile": "9392819362",
+  "store_contact_numbers": "9866522624, 6303083004",
+  "order_receiving_email": "multitasker0777@gmail.com",
+  "ultramsg_instance": "instance196245",
+  "ultramsg_token": "36joxaja2djlcw29"
+}

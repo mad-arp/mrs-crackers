@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>MRS CRACKERS — Authentic Festive Fireworks Platform (Saidabad, Hyderabad)</title>
+  <link rel="icon" href="assets/logo_mrs_crackers.png" type="image/png">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono (Hotburn Studios Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="arch-grid-dark">
+
+  <!-- Festive Particle Sparkles Canvas -->
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Main Responsive App Shell -->
+  <div class="mobile-app-shell">
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 1: CUSTOMER STOREFRONT VIEW -->
+    <!-- ========================================================================= -->
+    <div id="view-customer" class="role-view">
+
+      <!-- Dynamic Multi-Device Header (Image 2 Ref) -->
+      <header class="mrs-top-header">
+        <div class="mrs-header-inner">
+          
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mrs-mobile-toggle" onclick="toggleMobileNavDrawer()" aria-label="Toggle navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+
+          <!-- Brand Identity (Sparkler Icon + MRS CRACKERS) -->
+          <div class="mrs-brand-badge" onclick="switchTab('home')">
+            <div class="mrs-logo-burst">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path></svg>
+            </div>
+            <div class="mrs-brand-name-group">
+              <div class="mrs-brand-name">MRS <span>CRACKERS</span></div>
+              <div class="mrs-brand-sub">Wholesale Fireworks • Hyderabad</div>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation Menu (Matching Multi-Tab Reference) -->
+          <nav class="mrs-desktop-nav">
+            <a class="mrs-nav-link active" id="nav-link-home" onclick="switchTab('home')">Home</a>
+            <a class="mrs-nav-link" id="nav-link-shop" onclick="switchTab('shop')">Shop</a>
+            <a class="mrs-nav-link" id="nav-link-orders" onclick="switchTab('orders')">Your Orders</a>
+            <a class="mrs-nav-link" id="nav-link-account" onclick="switchTab('account')">Account</a>
+          </nav>
+
+          <!-- Header Actions (Right) -->
+          <div class="mrs-header-right">
+            <!-- Search Toggle on Mobile/Desktop -->
+            <button class="mrs-cart-btn-desktop" onclick="toggleCartSheet(true)" title="Shopping Cart">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              <span class="mrs-cart-pill-badge" id="cart-count-badge">0</span>
+            </button>
+          </div>
+
+        </div>
+      </header>
+      <!-- Mobile Slide-Over Navigation Drawer (Image Ref) -->
+      <div class="mrs-mobile-drawer" id="mobile-nav-drawer">
+        <div class="mrs-drawer-overlay" onclick="toggleMobileNavDrawer(false)"></div>
+        <div class="mrs-drawer-content">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--purple-border);">
+              <div class="mrs-brand-badge" onclick="switchTab('home'); toggleMobileNavDrawer(false);">
+                <div class="mrs-logo-burst">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3Z"></path></svg>
+                </div>
+                <div class="mrs-brand-name-group">
+                  <div class="mrs-brand-name">MRS <span>CRACKERS</span></div>
+                  <div class="mrs-brand-sub">Wholesale Fireworks • Hyderabad</div>
+                </div>
+              </div>
+              <button onclick="toggleMobileNavDrawer(false)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(139,92,246,0.3); color: #FFF; width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+            </div>
+
+            <nav style="display: flex; flex-direction: column; gap: 8px;">
+              <a class="mrs-drawer-link active" id="drawer-link-home" onclick="switchTab('home'); toggleMobileNavDrawer(false);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+              </a>
+              <a class="mrs-drawer-link" id="drawer-link-shop" onclick="switchTab('shop'); toggleMobileNavDrawer(false);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                <span>Shop</span>
+              </a>
+
+              <a class="mrs-drawer-link" id="drawer-link-orders" onclick="switchTab('orders'); toggleMobileNavDrawer(false);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span>Your Orders</span>
+              </a>
+              <a class="mrs-drawer-link" id="drawer-link-account" onclick="switchTab('account'); toggleMobileNavDrawer(false);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Account</span>
+              </a>
+            </nav>
+          </div>
+
+          <div style="padding-top: 18px; border-top: 1px solid var(--purple-border); font-size: 0.72rem; color: var(--text-lavender);">
+            <div>MRS CRACKERS Wholesale</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 2px;">Saidabad Colony, Hyderabad</div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- TAB 1: HOME (Festive Storefront & Catalog - Image 2 Ref) -->
+      <main id="tab-home" class="tab-content-area" style="display: flex; flex-direction: column;">
+        
+        <!-- Search Bar -->
+        <div style="background: rgba(26, 11, 59, 0.7); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 6px 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="main-search-input" placeholder="Search sparklers, flowerpots, rockets, shots..." style="background: transparent; border: none; outline: none; color: #FFFFFF; font-size: 0.85rem; width: 100%;">
+        </div>
+
+        <!-- 1. Luxury Purple Hero Card (Image 2 Ref) -->
+        <section class="mrs-hero-card">
+          <div>
+            <div class="mrs-hero-tag-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path></svg>
+              <span>Light Up Your Celebrations</span>
+            </div>
+            
+            <h1 class="mrs-hero-headline">
+              Make Every Celebration <span class="gold-highlight">Brighter.</span>
+            </h1>
+
+            <p class="mrs-hero-sub">
+              Premium Sivakasi crackers for a sparkling festive season. Direct Saidabad wholesale pricing with express doorstep delivery across Hyderabad.
+            </p>
+
+            <a class="mrs-hero-cta-btn" onclick="document.getElementById('products-grid-container').scrollIntoView({behavior:'smooth'});">
+              <span>Shop Now</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+
+            <div class="mrs-hero-trust-row">
+              <div class="mrs-hero-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <span>Fast Delivery</span>
+              </div>
+              <div class="mrs-hero-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Secure Payments</span>
+              </div>
+              <div class="mrs-hero-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>24/7 Support</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Graphic Preview -->
+          <div class="mrs-hero-visual-wrapper">
+            <div class="mrs-hero-visual-box">
+              <img src="assets/hero_festive_composite.jpg" alt="MRS Crackers Festive Celebration" class="mrs-hero-scene-img">
+            </div>
+            <div class="mrs-carousel-dots">
+              <span class="mrs-dot active"></span>
+              <span class="mrs-dot"></span>
+              <span class="mrs-dot"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Shop by Category (Image 2 Ref) -->
+        <section style="margin-bottom: 24px;">
+          <div class="mrs-section-title-row">
+            <h2 class="mrs-section-heading">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path></svg>
+              <span>Shop by Category</span>
+            </h2>
+            <a class="mrs-view-all-link" onclick="filterCategoryByCode('all')">
+              <span>View All</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="mrs-categories-grid">
+            <!-- 1. Rockets -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('rockets')">
+              <div class="mrs-cat-media-frame">
+                <img src="Crackers/indian_crackers_product_imagesv2/Whistling_Rocket.jpg" alt="Rockets" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Rockets</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+
+            <!-- 2. Sparklers -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('sparklers')">
+              <div class="mrs-cat-media-frame">
+                <img src="assets/cat_sparklers.png" alt="Sparklers" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Sparklers</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+
+            <!-- 3. Fountains -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('flowerpots')">
+              <div class="mrs-cat-media-frame">
+                <img src="assets/flowerpot.png" alt="Fountains" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Fountains</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+
+            <!-- 4. Shots -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('multishot')">
+              <div class="mrs-cat-media-frame">
+                <img src="assets/cat_skyshots.png" alt="Shots" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Shots</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+
+            <!-- 5. Flower Pots -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('flowerpots')">
+              <div class="mrs-cat-media-frame">
+                <img src="assets/cat_flowerpots.png" alt="Flower Pots" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Flower Pots</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+
+            <!-- 6. Others -->
+            <div class="mrs-cat-card-purple" onclick="filterCategoryByCode('all')">
+              <div class="mrs-cat-media-frame">
+                <img src="assets/cat_giftboxes.png" alt="Others" class="mrs-cat-media-img">
+              </div>
+              <div class="mrs-cat-label-row">
+                <span class="mrs-cat-name-text">Others</span>
+                <span class="mrs-cat-arrow-circle">→</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Our Products Dynamic Multi-Device Grid (Image 2 Ref) -->
+        <section>
+          <div class="mrs-section-title-row">
+            <h2 class="mrs-section-heading">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path></svg>
+              <span>Our Products</span>
+            </h2>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <button class="filter-strip-btn" onclick="toggleFilterSheet(true)" style="padding: 5px 12px; font-size: 0.72rem; display: flex; align-items: center; gap: 4px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                <span>Filter & Sort</span>
+              </button>
+              <a class="mrs-view-all-link" onclick="filterCategoryByCode('all')">
+                <span>View All</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Dynamic Responsive Products Grid (4 col desktop, 3 col tablet, 2 col mobile) -->
+          <div class="mrs-products-grid" id="products-grid-container">
+            <!-- Dynamically populated by renderProducts() with .mrs-product-card-white -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- TAB 2: SHOP (Full Festive Catalog & Budget Planner - Panel 2 Ref) -->
+      <section id="tab-shop" class="tab-content-area" style="display: none; flex-direction: column; gap: 20px;">
+        
+        <!-- Shop Mini-Hero / Search Header Banner -->
+        <div class="shop-hero-banner" style="background: #180938; border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 16px; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
+          <div style="flex: 1; max-width: 650px;">
+            <div class="mrs-hero-tag-pill" style="margin-bottom: 8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"></path></svg>
+              <span>Light Up Your Celebrations</span>
+            </div>
+            
+            <h1 style="font-family: var(--font-display, sans-serif); font-size: 1.85rem; font-weight: 800; color: #FFFFFF; line-height: 1.2; margin: 6px 0 14px 0;">
+              Make Every Celebration <span style="color: #FFB800;">Brighter.</span>
+            </h1>
+
+            <!-- Shop Search Input (White rounded search pill matching Panel 2) -->
+            <div style="background: #FFFFFF; border-radius: 9999px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; max-width: 480px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="shop-catalog-search-input" placeholder="Search..." oninput="filterShopCatalog(this.value)" style="background: transparent; border: none; outline: none; color: #111827; font-size: 0.9rem; font-weight: 500; width: 100%;">
+            </div>
+          </div>
+
+          <!-- Hero Right Graphic Preview -->
+          <div style="width: 200px; height: 120px; border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(139, 92, 246, 0.4); flex-shrink: 0; display: block;" class="shop-hero-graphic-box">
+            <img src="assets/hero_festive_composite.jpg" alt="Festive Crackers" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+
+        <!-- Shop by Category Filter Chips -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div style="font-family: var(--font-display, sans-serif); font-size: 1rem; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 6px;">
+              <span>✨ Shop by Category</span>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <button class="mrs-tab-refresh-btn" onclick="refreshCurrentTab('shop')" title="Refresh Products & Stock">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                <span>Refresh Stock</span>
+              </button>
+              <div style="display: flex; gap: 4px;" id="shop-cat-nav-dots">
+                <span class="mrs-dot active"></span>
+                <span class="mrs-dot"></span>
+                <span class="mrs-dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-cat-chips-bar">
+            <button class="shop-cat-chip active" onclick="filterShopCategory('all', this)">All Crackers</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('sparklers', this)">Sparklers</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('flowerpots', this)">Flower Pots</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('rockets', this)">Rockets</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('multishot', this)">Sky Shots</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('chakkars', this)">Ground Chakkars</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('garland', this)">Garlands</button>
+            <button class="shop-cat-chip" onclick="filterShopCategory('giftboxes', this)">Gift Boxes</button>
+          </div>
+        </div>
+
+        <!-- 4-Column Responsive Product Grid (Matching Panel 2) -->
+        <div class="mrs-products-grid" id="shop-products-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+          <!-- Dynamically populated via renderShopProducts() -->
+        </div>
+
+
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- TAB 3: YOUR ORDERS (Order History & Sidebar Navigation - Panel 4 & 5 Ref) -->
+      <!-- ========================================================================= -->
+
+      <section id="tab-orders" class="tab-content-area" style="display: none; flex-direction: column; gap: 16px;">
+        
+        <!-- User Profile Strip (Avatar, Name, Contact & Action Buttons) -->
+        <div class="account-card-box" style="margin-bottom: 0;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div class="user-initial-badge" id="orders-user-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: #7C3AED; color: #FFF; font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);">
+                G
+              </div>
+              <div>
+                <div style="font-family: var(--font-display, sans-serif); font-weight: 800; font-size: 1.1rem; color: #FFFFFF;" id="orders-user-name">
+                  Guest Customer
+                </div>
+                <div style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: #9CA3AF; margin-top: 2px;" id="orders-user-contact">
+                  Sign in to view orders & saved addresses
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button class="mrs-btn-sm-purple" onclick="openSheet('login-sheet')" id="orders-logout-btn" style="padding: 7px 14px; font-size: 0.78rem;">
+                Log In / Sign Up
+              </button>
+              <button class="mrs-btn-sm-outline" id="orders-customize-btn" onclick="openProfileCustomizationModal()" style="padding: 7px 14px; font-size: 0.78rem; display: none;">
+                Edit Profile & DP
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two-Column Order History Layout (Matching Panel 4 & 5) -->
+        <div class="orders-history-layout">
+          
+          <!-- Left Column: Order History Accordions -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <h2 style="font-family: var(--font-display, sans-serif); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin: 0 0 4px 0;">
+                  Order History
+                </h2>
+                <div style="font-size: 0.75rem; color: #9CA3AF;">
+                  Past and current orders from our Saidabad wholesale store. Click an order to expand breakdown and tax invoice.
+                </div>
+              </div>
+              <button class="mrs-tab-refresh-btn" onclick="refreshCurrentTab('orders')" title="Refresh Orders in-place">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                <span>Refresh Orders</span>
+              </button>
+            </div>
+
+            <!-- Accordion List Container -->
+            <div id="orders-history-accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Dynamically populated via renderOrdersHistoryTab() -->
+            </div>
+          </div>
+
+          <!-- Right Column: Navigation Sidebar (Matching Panel 4 & 5) -->
+          <div style="background: #180938; border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: var(--font-display, sans-serif); font-size: 0.85rem; font-weight: 800; color: #FFB800; display: flex; align-items: center; gap: 6px; padding-bottom: 8px; border-bottom: 1px solid rgba(139, 92, 246, 0.2);">
+              <span>🧭 Store Navigation</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <a class="orders-sidebar-nav-item" onclick="switchTab('home')">Home</a>
+              <a class="orders-sidebar-nav-item" onclick="switchTab('shop')">Shop</a>
+              <a class="orders-sidebar-nav-item" onclick="switchTab('orders')">Your Orders</a>
+              <a class="orders-sidebar-nav-item" onclick="switchTab('account')">Account</a>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- TAB 5: ACCOUNT, PROFILE, ORDERS & ADDRESSES (Panel 3 Ref) -->
+      <!-- ========================================================================= -->
+      <section id="tab-account" class="tab-content-area" style="display: none;">
+        
+        <!-- Customer Profile Card (First Letter Icon or Custom DP + Customization) -->
+        <div class="account-card-box" id="account-profile-card">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div id="account-profile-avatar-container">
+              <div class="user-initial-badge" id="account-profile-initial">G</div>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--warm-50); line-height: 1.2;" id="account-profile-name">Guest Customer</div>
+              <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--warm-400); margin-top: 2px;" id="account-profile-contact">Sign in to view orders & saved addresses</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; align-items: center;">
+            <button class="mrs-btn-sm-purple" id="account-auth-action-btn" onclick="openSheet('login-sheet')">
+              <span>Log In / Sign Up</span>
+            </button>
+            <button class="mrs-btn-sm-outline" id="account-customize-btn" onclick="openProfileCustomizationModal()" style="display: none;">
+              <span>Edit Profile & DP</span>
+            </button>
+            <button class="mrs-tab-refresh-btn" id="account-tab-refresh-btn" onclick="refreshCurrentTab('account')" title="Refresh Account & Addresses">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3-Card Responsive Dashboard Grid (Fills desktop width cleanly) -->
+        <div class="account-grid-row">
+          <!-- Cart Quick Access & Summary -->
+          <div class="account-card-box clickable-card" onclick="toggleCartSheet(true)" style="cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.3rem;">🛒</span>
+                <div>
+                  <div style="font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: var(--warm-50);">Your Shopping Cart</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--warm-400);" id="account-cart-status">0 items • ₹0</div>
+                </div>
+              </div>
+              <button class="mrs-btn-sm-purple" onclick="event.stopPropagation(); toggleCartSheet(true);">View Cart →</button>
+            </div>
+          </div>
+
+          <!-- Orders & Live Delivery Card (Clean, minimal entry - click to view) -->
+          <div class="account-card-box clickable-card" onclick="switchTab('orders')" style="cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.4rem;">📦</span>
+                <div>
+                  <div style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--warm-50);">Your Orders & History</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--warm-400);" id="account-orders-status-summary">
+                    View order status & past consignments
+                  </div>
+                </div>
+              </div>
+              <button class="mrs-btn-sm-purple" onclick="event.stopPropagation(); switchTab('orders');">
+                View Orders →
+              </button>
+            </div>
+          </div>
+
+          <!-- Saved Delivery Addresses -->
+          <div class="account-card-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--warm-50);">📍 Saved Delivery Addresses</div>
+              <button class="mrs-btn-sm-purple" onclick="openAddAddressModal()">+ Add New</button>
+            </div>
+            <div id="saved-addresses-list" style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Dynamically populated or default Saidabad address -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Staff Card Slot (Injected ONLY if verified as Admin or Driver) -->
+        <div id="account-staff-dynamic-slot"></div>
+
+      </section>
+
+      
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ========================================================================= -->
+    <!-- DYNAMIC SECURE PORTAL MOUNT (ADMIN / DRIVER) -->
+    <!-- Strictly empty for customers; Injected only upon successful 2-Step Gate Verification -->
+    <!-- ========================================================================= -->
+    <div id="portal-mount-container" style="display: none;"></div>
+
+  </div> <!-- /mobile-app-shell -->
+
+  <!-- BOTTOM SHEETS SYSTEM -->
+  <!-- ========================================================================= -->
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ADD DELIVERY ADDRESS (Native Festive Themed UI - No Browser Prompts) -->
+  <!-- ========================================================================= -->
+  <div class="bottom-sheet-backdrop" id="address-sheet">
+    <div class="bottom-sheet" style="max-width: 520px; margin: 0 auto;">
+      <div class="sheet-drag-handle"></div>
+      
+      <div class="sheet-header">
+        <div class="sheet-title" style="display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span style="font-family: var(--font-display, sans-serif); font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">Add Delivery Address</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('address-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body" style="padding-top: 10px;">
+        <form id="address-add-form" onsubmit="handleSaveAddressSubmit(event)">
+          
+          <!-- Address Tag / Label Chips -->
+          <div style="margin-bottom: 12px;">
+            <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 6px;">Address Type</label>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="addr-tag-chip active" onclick="selectAddressTag('Home', this)" style="background: var(--purple-primary); border: 1.5px solid var(--purple-hover); color: #FFF; padding: 6px 14px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; cursor: pointer;">🏠 Home</button>
+              <button type="button" class="addr-tag-chip" onclick="selectAddressTag('Work', this)" style="background: rgba(124,58,237,0.15); border: 1px solid rgba(139,92,246,0.3); color: #DDD6FE; padding: 6px 14px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; cursor: pointer;">🏢 Work / Office</button>
+              <button type="button" class="addr-tag-chip" onclick="selectAddressTag('Shop', this)" style="background: rgba(124,58,237,0.15); border: 1px solid rgba(139,92,246,0.3); color: #DDD6FE; padding: 6px 14px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; cursor: pointer;">🏪 Shop / Counter</button>
+              <button type="button" class="addr-tag-chip" onclick="selectAddressTag('Other', this)" style="background: rgba(124,58,237,0.15); border: 1px solid rgba(139,92,246,0.3); color: #DDD6FE; padding: 6px 14px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; cursor: pointer;">📍 Other</button>
+            </div>
+            <input type="hidden" id="addr-input-tag" value="Home">
+          </div>
+
+          <!-- Recipient Name & Phone -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+            <div>
+              <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">Recipient Name</label>
+              <input type="text" id="addr-input-name" class="form-input" placeholder="e.g. Bandi Rohan" style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+            </div>
+            <div>
+              <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">Contact Mobile</label>
+              <input type="tel" id="addr-input-phone" class="form-input" placeholder="10-digit number" maxlength="10" style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+            </div>
+          </div>
+
+          <!-- House / Flat / Street -->
+          <div style="margin-bottom: 12px;">
+            <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">House / Flat No, Building & Street</label>
+            <input type="text" id="addr-input-street" class="form-input" placeholder="e.g. Flat 402, Sri Sai Nivas, Road No. 3" required style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+          </div>
+
+          <!-- Locality / Colony -->
+          <div style="margin-bottom: 12px;">
+            <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">Colony / Locality / Landmark</label>
+            <input type="text" id="addr-input-colony" class="form-input" placeholder="e.g. Saidabad Colony, Opp. SBI ATM" required style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+          </div>
+
+          <!-- City & Pincode -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+            <div>
+              <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">City / Area</label>
+              <input type="text" id="addr-input-city" class="form-input" value="Hyderabad" style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+            </div>
+            <div>
+              <label style="font-size: 0.72rem; font-weight: 700; color: #DDD6FE; display: block; margin-bottom: 4px;">Pincode</label>
+              <input type="text" id="addr-input-pincode" class="form-input" value="500059" maxlength="6" style="background: #180938; border: 1px solid rgba(139,92,246,0.3); color: #FFF; font-size: 0.82rem; padding: 9px 12px; border-radius: 8px; width: 100%;">
+            </div>
+          </div>
+
+          <div id="address-form-error" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid #EF4444; color: #FCA5A5; font-size: 0.76rem; padding: 8px 12px; border-radius: 6px; margin-bottom: 12px;"></div>
+
+          <button type="submit" class="mrs-cart-btn-purple-full" style="width: 100%; padding: 12px; font-weight: 800; font-size: 0.9rem;">
+            <span>Save Delivery Address 📍</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 1: UNIFIED GUEST / CUSTOMER / DRIVER LOGIN SHEET -->
+  <!-- Styled after Hotburn Studios Auth Modal (Zero popup at start!) -->
+    <!-- ========================================================================= -->
+  <!-- MODAL: CUSTOMER AUTHENTICATION (LOGIN / SIGN UP) -->
+  <!-- ========================================================================= -->
+  <div class="bottom-sheet-backdrop" id="login-sheet">
+    <div class="bottom-sheet">
+      <div class="sheet-drag-handle"></div>
+      
+      <div class="sheet-header">
+        <div class="sheet-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span id="auth-sheet-title">Customer Authentication</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('login-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body">
+        <!-- Auth Tabs: LOGIN / SIGNUP -->
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="auth-tab-btn-login" onclick="switchAuthTab('login')">
+            LOG IN
+          </button>
+          <button class="auth-tab-btn" id="auth-tab-btn-signup" onclick="switchAuthTab('signup')">
+            SIGN UP
+          </button>
+        </div>
+
+        <!-- 1. LOGIN FORM -->
+        <form id="auth-login-form" onsubmit="handleCustomerLoginSubmit(event)">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <label class="form-label">Email or Mobile Number</label>
+              <input type="text" id="login-identifier" class="form-input" placeholder="Enter your email or 10-digit mobile" required>
+            </div>
+            <div>
+              <label class="form-label">Password</label>
+              <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required>
+            </div>
+
+            <div id="login-error-msg" style="color: #EF4444; font-size: 0.72rem; display: none;"></div>
+
+            <button type="submit" class="hero-btn-mobile" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.88rem; margin-top: 4px;">
+              <span>Log In & Continue</span>
+            </button>
+
+            <div style="text-align: center; font-size: 0.75rem; color: var(--warm-400); margin-top: 6px;">
+              New to MRS Crackers? 
+              <a href="javascript:void(0)" onclick="switchAuthTab('signup')" style="color: var(--ember-400); font-weight: 700; text-decoration: none;">Create an Account</a>
+            </div>
+          </div>
+        </form>
+
+        <!-- 2. SIGN UP FORM -->
+        <form id="auth-signup-form" style="display: none;" onsubmit="handleCustomerSignupSubmit(event)">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <label class="form-label">Username / Full Name</label>
+              <input type="text" id="signup-username" class="form-input" placeholder="e.g. Rohan Bandi" required>
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="name@example.com" required>
+            </div>
+            <div>
+              <label class="form-label">Mobile Number</label>
+              <input type="tel" id="signup-mobile" class="form-input" placeholder="10-digit mobile number" maxlength="10" required>
+            </div>
+            <div>
+              <label class="form-label">Password</label>
+              <input type="password" id="signup-password" class="form-input" placeholder="Create a password" required>
+            </div>
+            <div>
+              <label class="form-label">Repeat Password</label>
+              <input type="password" id="signup-repeat-password" class="form-input" placeholder="Repeat your password" required>
+            </div>
+
+            <div id="signup-error-msg" style="color: #EF4444; font-size: 0.72rem; display: none;"></div>
+
+            <button type="submit" class="hero-btn-mobile" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.88rem; margin-top: 4px;">
+              <span>Create Account & Continue</span>
+            </button>
+
+            <div style="text-align: center; font-size: 0.75rem; color: var(--warm-400); margin-top: 6px;">
+              Already have an account? 
+              <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="color: var(--ember-400); font-weight: 700; text-decoration: none;">Log In</a>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: PROFILE & DP CUSTOMIZATION -->
+  <!-- ========================================================================= -->
+  <div class="bottom-sheet-backdrop" id="profile-customization-sheet">
+    <div class="bottom-sheet">
+      <div class="sheet-drag-handle"></div>
+      
+      <div class="sheet-header">
+        <div class="sheet-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Customize Profile & DP</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('profile-customization-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body">
+        <form onsubmit="handleSaveProfileCustomization(event)">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            
+            <!-- Live Avatar Preview -->
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; margin-bottom: 4px;">
+              <div id="customize-preview-avatar">
+                <div class="user-initial-badge" id="customize-preview-initial" style="width: 68px; height: 68px; font-size: 2rem;">C</div>
+              </div>
+              <div style="font-size: 0.7rem; color: var(--warm-400);">Default avatar uses the 1st letter of your name</div>
+            </div>
+
+            <div>
+              <label class="form-label">Display Name</label>
+              <input type="text" id="custom-display-name" class="form-input" placeholder="Your display name" required>
+            </div>
+
+            <div>
+              <label class="form-label">Profile Picture (Upload Image)</label>
+              <input type="file" id="custom-dp-file" class="form-input" accept="image/*" onchange="handleDpFileUpload(event)" style="padding: 6px;">
+            </div>
+
+            <div>
+              <label class="form-label">Or Image URL</label>
+              <input type="url" id="custom-dp-url" class="form-input" placeholder="https://example.com/photo.jpg" oninput="handleDpUrlInput(this.value)">
+            </div>
+
+            <button type="button" class="filter-strip-btn" onclick="resetToInitialAvatar()" style="width: 100%; justify-content: center; font-size: 0.72rem;">
+              ↺ Reset to First-Letter Initial Avatar
+            </button>
+
+            <button type="submit" class="hero-btn-mobile" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.88rem; margin-top: 6px;">
+              <span>Save Profile Changes</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 2: CART DRAWER (Image 2 Top-Right Ref) -->
+  <div class="bottom-sheet-backdrop" id="cart-sheet">
+    <div class="bottom-sheet mrs-cart-drawer-card" style="max-height: 92vh;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="mrs-cart-header" style="display: flex; align-items: center; justify-content: space-between;">
+        <div class="mrs-cart-title" style="display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span>Your Cart</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button class="mrs-tab-refresh-btn" onclick="refreshCartSection()" title="Refresh Cart in-place" style="padding: 5px 12px; font-size: 0.75rem; background: #F3F4F6; color: #4B5563; border: 1px solid #D1D5DB; border-radius: 6px; cursor: pointer;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            <span>Refresh Cart</span>
+          </button>
+          <button class="close-sheet-btn" onclick="toggleCartSheet(false)" style="color: #6B7280; background: #F3F4F6; width: 28px; height: 28px; border-radius: 50%; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+        </div>
+      </div>
+
+      <!-- Free Express Delivery Progress Bar -->
+      <div style="background: #F9FAFB; padding: 10px 18px; border-bottom: 1px solid #E5E7EB;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 700; color: #7C3AED; margin-bottom: 4px;" id="free-shipping-progress-text">
+          Add ₹999 for FREE Express Delivery!
+        </div>
+        <div style="height: 5px; width: 100%; background: #E5E7EB; border-radius: 999px; overflow: hidden;">
+          <div id="free-shipping-progress-bar" style="height: 100%; width: 0%; background: #7C3AED; transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+
+      <div class="sheet-body" id="cart-body-content" style="padding: 16px 20px; overflow-y: auto;">
+        <!-- Cart Empty State -->
+        <div id="cart-empty-state" style="display: none; flex-direction: column; align-items: center; justify-content: center; padding: 40px 10px; text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 8px; color: #7C3AED;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 800; color: #111827;">Your Cart is Empty</div>
+          <div style="font-size: 0.75rem; color: #6B7280; margin: 4px 0 16px 0;">Add sparklers, pots, or sky shots to begin celebrating!</div>
+          <button class="mrs-btn-add-purple" onclick="toggleCartSheet(false); switchTab('home');" style="padding: 10px 20px; border-radius: 8px;">Browse Products</button>
+        </div>
+
+        <!-- Cart Items List Container (Image 2 Ref) -->
+        <div id="cart-items-container" style="display: flex; flex-direction: column;"></div>
+
+        <!-- Summary Breakdown (Image 2 Ref) -->
+        <div class="mrs-cart-summary-box" id="cart-filled-state">
+          <div class="mrs-cart-summary-row">
+            <span>Subtotal</span>
+            <strong id="cart-subtotal-amount">₹0</strong>
+            <span id="cart-subtotal-val" style="display: none;">0</span>
+          </div>
+          <div class="mrs-cart-summary-row">
+            <span>Delivery Charges</span>
+            <strong id="cart-delivery-fee" style="color: #15803D;">₹49</strong>
+          </div>
+          <div class="mrs-cart-total-row">
+            <span>Total</span>
+            <span id="cart-grand-total" style="color: #7C3AED;">₹0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="sheet-footer" style="padding: 14px 20px; background: #FFFFFF; border-top: 1px solid #E5E7EB;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.72rem;">
+          <span style="color: #6B7280;" id="cart-total-weight">Consignment Weight: 0 g</span>
+          <span style="color: #15803D; font-weight: 700;" id="cart-total-savings">Saved ₹0</span>
+        </div>
+
+        <button class="mrs-cart-btn-purple-full" id="cart-checkout-btn" onclick="initiateCheckout()">
+          <span>Proceed to Checkout</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+
+        <div class="mrs-cart-secure-tag">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Secure & Safe Checkout</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 3: DELIVERY & ADDRESS (Image 2 Checkout Step 1 Ref) -->
+  <!-- BOTTOM SHEET 3: DELIVERY & ADDRESS (Image 2 Checkout Step 1 Ref) -->
+  <div class="bottom-sheet-backdrop" id="delivery-sheet">
+    <div class="bottom-sheet" style="max-height: 92vh; background: #FFFFFF; color: #111827;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header" style="padding: 12px 20px; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: space-between;">
+        <div class="sheet-title" style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span>Checkout</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('delivery-sheet')" style="color: #6B7280; background: #F3F4F6; width: 28px; height: 28px; border-radius: 50%; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+      </div>
+
+      <!-- 3-Step Checkout Wizard Bar (Image 2 Ref) -->
+      <div class="mrs-checkout-wizard-bar">
+        <div class="mrs-wizard-step active">
+          <span class="mrs-wizard-num">1</span>
+          <span>Shipping</span>
+        </div>
+        <div class="mrs-wizard-line"></div>
+        <div class="mrs-wizard-step">
+          <span class="mrs-wizard-num">2</span>
+          <span>Payment</span>
+        </div>
+        <div class="mrs-wizard-line"></div>
+        <div class="mrs-wizard-step">
+          <span class="mrs-wizard-num">3</span>
+          <span>Confirm</span>
+        </div>
+      </div>
+
+      <div class="sheet-body" style="padding: 18px 20px; overflow-y: auto;">
+        
+        <!-- Shipping Details Section Header matching image -->
+        <div style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: #111827; margin-bottom: 12px;">
+          Shipping Details
+        </div>
+
+        <!-- Address Preview Card with Edit Link (Image 2 Ref) -->
+        <div class="mrs-shipping-preview-card">
+          <div>
+            <div class="mrs-shipping-deliver-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Deliver to:</span>
+            </div>
+            <div class="mrs-shipping-addr-text" id="checkout-preview-address">
+              Plot 42, Saidabad Colony, Near Hanuman Temple, Hyderabad - 500059
+            </div>
+          </div>
+          <button type="button" class="mrs-shipping-edit-btn" onclick="document.getElementById('checkout-address-editor').scrollIntoView({behavior:'smooth'})">Edit</button>
+        </div>
+
+        <!-- Fulfillment Mode Toggle -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+          <div class="del-opt-card-white active" id="delivery-opt-home" onclick="setDeliveryType('home')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; font-size: 0.82rem; color: #111827;">Express Delivery</span>
+              <span style="font-size: 0.62rem; color: #15803D; font-weight: 800; background: #DCFCE7; padding: 2px 6px; border-radius: 4px;">CASH ON DELIVERY</span>
+            </div>
+            <div style="font-size: 0.7rem; color: #6B7280; margin-top: 2px;">Doorstep delivery in Hyderabad</div>
+          </div>
+
+          <div class="del-opt-card-white" id="delivery-opt-store" onclick="setDeliveryType('store')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; font-size: 0.82rem; color: #111827;">Counter Pickup</span>
+              <span style="font-size: 0.62rem; color: #15803D; font-weight: 800;">FREE</span>
+            </div>
+            <div style="font-size: 0.7rem; color: #6B7280; margin-top: 2px;">Saidabad Wholesale Counter</div>
+          </div>
+        </div>
+
+        <!-- Customer Contact Fields -->
+        <div id="checkout-address-editor" style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.03em;">Contact for Tax Invoice & Updates</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="checkout-cust-name" class="form-input" placeholder="e.g. Bandi Rohan" required>
+            </div>
+            <div>
+              <label class="form-label">10-Digit Mobile (WhatsApp) *</label>
+              <input type="tel" id="checkout-cust-phone" class="form-input" placeholder="10-digit mobile" maxlength="10" required>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-label">Registered Email Address (for Official Tax Invoice) *</label>
+            <input type="email" id="checkout-cust-email" class="form-input" placeholder="name@example.com" required>
+          </div>
+
+          <!-- Home Delivery Address Inputs -->
+          <div id="home-delivery-fields" style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div>
+              <label class="form-label">House / Flat / Plot No. *</label>
+              <input type="text" id="checkout-cust-house" class="form-input" value="Plot 42, Sri Sai Krupa Nilayam">
+            </div>
+
+            <div>
+              <label class="form-label">Street / Colony / Locality *</label>
+              <input type="text" id="checkout-cust-area" class="form-input" value="Saidabad Colony, Near Hanuman Temple">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div>
+                <label class="form-label">Pincode *</label>
+                <input type="text" id="checkout-cust-pincode" class="form-input" value="500059" maxlength="6" oninput="checkPincodeZone()">
+              </div>
+              <div>
+                <label class="form-label">Landmark</label>
+                <input type="text" id="checkout-cust-landmark" class="form-input" value="Opp. State Bank ATM">
+              </div>
+            </div>
+          </div>
+
+          <!-- Store Pickup Preview -->
+          <div id="store-pickup-preview" style="display: none; background: #F5F3FF; border: 1.5px solid #7C3AED; border-radius: 10px; padding: 12px;">
+            <div style="font-weight: 800; font-size: 0.88rem; color: #5B21B6;">Saidabad Wholesale Counter Pickup</div>
+            <div style="font-size: 0.72rem; color: #4B5563; margin-top: 4px; line-height: 1.4;">
+              Plot 42, Sri Sai Krupa Nilayam, Near Hanuman Temple, Saidabad Colony, Hyderabad - 500059.<br>
+              <strong>Ready in 30 mins! Zero delivery charge.</strong> Instant pickup pass generated upon order.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer with Continue Button matching reference image -->
+      <div class="sheet-footer" style="padding: 14px 20px; background: #FFFFFF; border-top: 1px solid #E5E7EB; display: flex; gap: 10px; align-items: center;">
+        <button type="button" onclick="closeSheet('delivery-sheet'); openSheet('cart-sheet');" style="padding: 12px 16px; font-weight: 700; border-radius: 8px; font-size: 0.82rem; background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; cursor: pointer; white-space: nowrap;">
+          ← Back to Cart
+        </button>
+        <button class="mrs-cart-btn-purple-full" onclick="proceedToPaymentModal()" style="flex: 1;">
+          <span>Continue to Payment</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 4: PAYMENT (Image 2 Checkout Step 2 Ref) -->
+  <div class="bottom-sheet-backdrop" id="payment-sheet">
+    <div class="bottom-sheet" style="max-height: 94vh; background: #FFFFFF; color: #111827;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header" style="padding: 12px 20px; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: space-between;">
+        <div class="sheet-title" style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          <span id="payment-sheet-heading">Payment Method</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('payment-sheet')" style="color: #6B7280; background: #F3F4F6; width: 28px; height: 28px; border-radius: 50%; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+      </div>
+
+      <!-- 3-Step Checkout Wizard Bar (Step 2 Active) -->
+      <div class="mrs-checkout-wizard-bar">
+        <div class="mrs-wizard-step" style="color: #10B981;">
+          <span class="mrs-wizard-num" style="background: #10B981; color: #FFFFFF;">✓</span>
+          <span>Shipping</span>
+        </div>
+        <div class="mrs-wizard-line" style="background: #10B981;"></div>
+        <div class="mrs-wizard-step active">
+          <span class="mrs-wizard-num">2</span>
+          <span>Payment</span>
+        </div>
+        <div class="mrs-wizard-line"></div>
+        <div class="mrs-wizard-step">
+          <span class="mrs-wizard-num">3</span>
+          <span>Confirm</span>
+        </div>
+      </div>
+
+      <div class="sheet-body" style="padding: 18px 20px; overflow-y: auto;">
+        
+        <!-- Summary Box -->
+        <div class="mrs-cart-summary-box" style="margin-top: 0; margin-bottom: 14px;">
+          <div class="mrs-cart-summary-row">
+            <span>Subtotal</span>
+            <strong id="payment-subtotal-display">₹0</strong>
+          </div>
+          <div class="mrs-cart-summary-row">
+            <span>Delivery Charges</span>
+            <strong id="payment-shipping-display" style="color: #15803D;">₹49</strong>
+          </div>
+          <div class="mrs-cart-total-row">
+            <span>Total Payable</span>
+            <span id="payment-grand-total-display" style="color: #7C3AED;">₹0</span>
+          </div>
+        </div>
+
+        <!-- Cash on Delivery Notice -->
+        <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; color: #166534; font-size: 0.75rem; padding: 12px 14px; border-radius: 8px; line-height: 1.45; margin-bottom: 14px; display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">💵</span>
+          <div>
+            <strong style="color: #15803D;">Cash on Delivery (COD) Active:</strong>
+            <div>Pay cash directly upon delivery at your doorstep or when picking up at the Saidabad wholesale counter. No advance online transfer needed.</div>
+          </div>
+        </div>
+
+        <!-- Payment Method Options -->
+        <div style="font-size: 0.78rem; font-weight: 700; color: #374151; margin-bottom: 10px; text-transform: uppercase;">
+          Select Payment Method:
+        </div>
+
+        <!-- Option 1: Cash on Delivery (COD) - Fully Active & Selected -->
+        <div style="background: #F0FDF4; border: 2px solid #22C55E; border-radius: var(--radius-md); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(34, 197, 94, 0.12);" id="cod-payment-option-row" onclick="selectPaymentMode('cod')">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <input type="radio" name="payment-method-radio" id="cod-radio-btn" checked style="accent-color: #16A34A; width: 18px; height: 18px; cursor: pointer;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #111827;">Cash on Delivery (COD)</span>
+                <span style="font-size: 0.65rem; font-weight: 800; background: #DCFCE7; color: #15803D; border: 1px solid #86EFAC; padding: 2px 8px; border-radius: 12px;">ACTIVE</span>
+              </div>
+              <div style="font-size: 0.74rem; color: #4B5563; margin-top: 2px;">
+                Pay exact cash when crackers box arrives at your doorstep (or at Saidabad counter).
+              </div>
+            </div>
+          </div>
+          <span style="font-size: 1.6rem;">💵</span>
+        </div>
+
+        <!-- Option 2: Online Payments - Marked Will Arrive Soon -->
+        <div style="background: #F9FAFB; border: 1.5px dashed #D1D5DB; border-radius: var(--radius-md); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; opacity: 0.75; cursor: not-allowed; margin-bottom: 14px;" id="online-option-disabled-row" onclick="showToast('Online Payments (UPI/Cards) will arrive soon! Currently Cash on Delivery is active.')">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <input type="radio" name="payment-method-radio" id="online-radio-btn" disabled style="accent-color: #9CA3AF; width: 18px; height: 18px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-weight: 800; font-size: 0.92rem; color: #6B7280;">Online Payment (UPI, Cards & Net Banking)</span>
+                <span style="font-size: 0.65rem; font-weight: 800; background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; padding: 2px 8px; border-radius: 12px;">🚀 WILL ARRIVE SOON</span>
+              </div>
+              <div style="font-size: 0.72rem; color: #9CA3AF; margin-top: 2px;">
+                Direct online payment via UPI QR, GPay, PhonePe, and Credit/Debit Cards will arrive soon.
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 6px; align-items: center; filter: grayscale(90%); opacity: 0.7;">
+            <img src="assets/logo_paytm.png" alt="UPI" style="height: 14px;">
+            <img src="assets/logo_bharatpe.png" alt="Cards" style="height: 14px;">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sheet-footer" style="padding: 14px 20px; background: #FFFFFF; border-top: 1px solid #E5E7EB; display: flex; gap: 10px; align-items: center;">
+        <button type="button" onclick="closeSheet('payment-sheet'); openSheet('delivery-sheet');" style="padding: 12px 16px; font-weight: 700; border-radius: 8px; font-size: 0.82rem; background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; cursor: pointer; white-space: nowrap;">
+          ← Back to Address
+        </button>
+        <button class="mrs-cart-btn-purple-full" id="payment-submit-order-btn" onclick="confirmCodOrder()" style="flex: 1; background: #16A34A !important; border-color: #15803D !important; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3) !important;">
+          <span id="payment-btn-text">Confirm Order (Cash on Delivery) →</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: DEDICATED UPI QR PAYMENT POP-UP (Real Business Payment) -->
+  <!-- ========================================================================= -->
+  <div class="upi-popup-modal-wrap" id="upi-qr-popup-modal">
+    <div class="upi-popup-card">
+      <div class="upi-popup-header">
+        <div>
+          <div style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #111827;">
+            ⚡ Official Merchant UPI Payment
+          </div>
+          <div style="font-size: 0.72rem; color: #6B7280; margin-top: 2px;">
+            MRS Crackers Wholesale Direct Payment • Saidabad Hub
+          </div>
+        </div>
+        <button onclick="closeUpiQrModal()" style="background: #F3F4F6; border: none; border-radius: 50%; width: 28px; height: 28px; color: #4B5563; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+      </div>
+
+      <!-- Payable Amount Highlight Banner -->
+      <div style="background: linear-gradient(135deg, #180938, #3B0764); border-radius: 12px; padding: 14px 18px; color: #FFFFFF; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 0.72rem; color: #D8B4FE; text-transform: uppercase; letter-spacing: 0.5px;">Total Amount to Pay</div>
+          <div style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #FBBF24;" id="popup-qr-amount-display">₹0</div>
+        </div>
+        <div style="text-align: right; font-size: 0.7rem; color: #DDD6FE;">
+          <div>Instant Verification</div>
+          <div style="color: #34D399; font-weight: 700; margin-top: 2px;">● Zero Transaction Fee</div>
+        </div>
+      </div>
+
+      <!-- Merchant Selector Tabs (Dual QR Support) -->
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 6px;">Select Merchant QR:</div>
+        <div class="upi-merchant-tabs">
+          <button class="upi-merchant-tab-btn active" id="popup-tab-m1" onclick="switchPopupMerchant(1)">
+            <span>Merchant 1</span> (<span id="popup-m1-name-tab">Bandi Rohan</span>)
+          </button>
+          <button class="upi-merchant-tab-btn" id="popup-tab-m2" onclick="switchPopupMerchant(2)">
+            <span>Merchant 2</span> (<span id="popup-m2-name-tab">Saidabad Counter</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Active QR Display Box -->
+      <div class="upi-qr-display-box">
+        <div style="font-size: 0.88rem; font-weight: 800; color: #111827;" id="popup-active-merchant-name">Bandi Rohan (Official Store)</div>
+        <img src="assets/qr_paytm.png" alt="Merchant UPI QR" class="upi-qr-image-large" id="popup-active-qr-img">
+        <div class="upi-id-copy-row">
+          <span id="popup-active-upi-id">9392819362@upi</span>
+          <button class="upi-copy-btn" onclick="copyActiveUpiId()" id="popup-copy-upi-btn">
+            📋 Copy UPI ID
+          </button>
+        </div>
+        <div style="font-size: 0.7rem; color: #6B7280;">
+          Scan with GPay, PhonePe, Paytm, BHIM, or any UPI App
+        </div>
+      </div>
+
+      <!-- Deep Link UPI App Launchers (Mobile convenience) -->
+      <a id="popup-deep-link-btn" href="#" style="background: #FAF5FF; border: 1px solid #C4B5FD; color: #6D28D9; border-radius: 8px; padding: 10px; font-size: 0.78rem; font-weight: 700; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span>📱 Click to Pay via UPI App (GPay / PhonePe / Paytm)</span>
+      </a>
+
+      <!-- UTR Transaction ID Entry -->
+      <div style="background: #F9FAFB; border: 1.5px solid #E5E7EB; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <label style="font-size: 0.78rem; font-weight: 800; color: #111827;">Enter 12-Digit UTR / Transaction ID *</label>
+          <span style="font-size: 0.68rem; color: #7C3AED; font-weight: 700;">Mandatory for Verification</span>
+        </div>
+        <input type="text" id="popup-utr-input" class="form-input" placeholder="e.g. 431209876543" maxlength="16" style="font-family: var(--font-mono); font-weight: 800; letter-spacing: 1.5px; font-size: 1rem;">
+        <div style="font-size: 0.7rem; color: #6B7280; line-height: 1.4;">
+          After paying in your UPI app, find the 12-digit UTR / Reference number from the payment receipt and enter it above.
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: flex; gap: 10px; margin-top: 4px;">
+        <button type="button" onclick="closeUpiQrModal()" style="padding: 12px 16px; font-weight: 700; border-radius: 8px; font-size: 0.82rem; background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; cursor: pointer; white-space: nowrap;">
+          Cancel
+        </button>
+        <button type="button" class="mrs-cart-btn-purple-full" onclick="submitPopupPaymentProof()" style="flex: 1; padding: 12px; font-size: 0.88rem;">
+          <span>✓ I Have Paid — Submit Payment Proof</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 5: ORDER SUCCESS -->
+  <div class="bottom-sheet-backdrop" id="success-sheet">
+    <div class="bottom-sheet" style="background: #FFFFFF; color: #111827;">
+      <div class="sheet-drag-handle"></div>
+      <div style="display: flex; justify-content: flex-end; padding: 10px 16px 0 16px;">
+        <button class="close-sheet-btn" onclick="closeSheet('success-sheet')" style="color: #6B7280; background: #F3F4F6; width: 28px; height: 28px; border-radius: 50%; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+      </div>
+
+      <div class="sheet-body" style="text-align: center; padding: 20px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: #DCFCE7; color: #16A34A; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 16px rgba(22, 163, 74, 0.25);">
+          ✓
+        </div>
+
+        <h2 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #111827; margin-top: 12px;">Order Placed Successfully!</h2>
+        <div style="font-size: 0.78rem; color: #6B7280; margin-top: 2px;">Your Order Reference is confirmed:</div>
+
+        <div style="background: #F5F3FF; color: #7C3AED; border: 1.5px solid #DDD6FE; padding: 6px 18px; border-radius: 999px; font-family: var(--font-mono); font-size: 1rem; font-weight: 800; display: inline-block; margin: 12px auto;" id="success-order-id">
+          #MRS2412067
+        </div>
+
+        <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 12px; text-align: left; font-size: 0.78rem; display: flex; flex-direction: column; gap: 6px; margin: 10px 0;">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #6B7280;">Payment UTR:</span>
+            <strong id="success-utr-display" style="font-family: var(--font-mono); color: #111827;">123456789012</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #6B7280;">Total Amount:</span>
+            <strong id="success-amount-display" style="font-family: var(--font-mono); color: #7C3AED;">₹0</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #6B7280;">Verification Status:</span>
+            <span class="status-badge" style="background: #FEF3C7; color: #D97706; padding: 2px 8px; border-radius: 10px; font-weight: 700; font-size: 0.72rem;" id="success-status-pill">● Pending Verification</span>
+          </div>
+        </div>
+
+        <div style="background: #F5F3FF; border: 1px solid #C4B5FD; border-radius: 8px; padding: 10px; margin: 12px 0; font-size: 0.72rem; color: #5B21B6; text-align: left; line-height: 1.45;">
+          <strong>Official Tax Invoice:</strong> As per store policy, your full GST invoice will be automatically dispatched to your registered email & WhatsApp as soon as your order is confirmed and delivered.
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          <button class="mrs-cart-btn-purple-full" onclick="closeSheet('success-sheet'); openOrdersModal();" style="padding: 12px;">
+            <span>Track Order & Live Status</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: OFFICIAL GST TAX INVOICE & DISPATCH VIEWER -->
+  <div id="tax-invoice-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 99999; align-items: center; justify-content: center; padding: 14px;">
+    <div style="background: #FFFFFF; color: #111827; border-radius: 12px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); position: relative; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      
+      <!-- Close Button -->
+      <button onclick="MRS_INVOICE.closeInvoiceModal()" style="position: absolute; top: 14px; right: 14px; background: #F3F4F6; border: none; font-size: 1.2rem; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #374151;">✕</button>
+
+      <!-- Invoice Content Container -->
+      <div id="invoice-modal-content">
+        <!-- Dynamically injected by MRS_INVOICE.renderInvoiceModal(order) -->
+      </div>
+
+      <!-- Action Footer -->
+      <div style="display: flex; gap: 8px; margin-top: 18px; border-top: 1px solid #E5E7EB; padding-top: 14px;">
+        <button onclick="MRS_INVOICE.printInvoice()" style="flex: 1; background: #FFB800; color: #000; border: none; font-weight: 800; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          🖨️ Print / Save PDF
+        </button>
+        <a id="invoice-whatsapp-btn" href="#" target="_blank" style="flex: 1; background: #22C55E; color: #FFF; text-decoration: none; font-weight: 800; padding: 10px; border-radius: 6px; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          💬 Send on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BOTTOM SHEET: ORDERS & LIVE DELIVERY TRACKING (Clean slide-up modal) -->
+  <!-- ========================================================================= -->
+  <div class="bottom-sheet-backdrop" id="orders-history-sheet">
+    <div class="bottom-sheet" style="max-height: 90vh;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header">
+        <div class="sheet-title" style="display: flex; align-items: center; gap: 8px;">
+          <span>🛍️</span> <span>Your Orders</span>
+        </div>
+        <button class="close-sheet-btn" onclick="closeSheet('orders-history-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body" style="display: flex; flex-direction: column; gap: 14px; padding-bottom: 24px;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-size: 0.8rem; color: #4B5563; font-weight: 700;">Recent & Active Orders</div>
+          <button class="mrs-btn-sm-outline" onclick="renderCustomerOrders(); showToast('Orders refreshed');" style="font-size: 0.7rem; padding: 4px 10px; color: #7C3AED; border-color: #DDD6FE; background: #FAF5FF; cursor: pointer;">
+            🔄 Refresh Orders
+          </button>
+        </div>
+
+        <!-- Orders List Container (Populated by renderCustomerOrders) -->
+        <div id="customer-orders-list-mobile" style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Empty Orders State (Shown if 0 orders) -->
+        <div id="modal-no-active-delivery" style="display: none; background: #F9FAFB; border: 1.5px dashed #D1D5DB; border-radius: 14px; padding: 32px 16px; text-align: center;">
+          <div style="font-size: 2.2rem; margin-bottom: 8px;">🛍️</div>
+          <div style="font-weight: 800; color: #111827; font-size: 1rem;">No Orders Placed Yet</div>
+          <div style="font-size: 0.78rem; color: #6B7280; margin-top: 4px;">Browse our Sivakasi fireworks catalog and add crackers to your cart to place an order.</div>
+          <button class="mrs-cart-btn-purple-full" onclick="closeSheet('orders-history-sheet'); switchTab('home');" style="margin-top: 16px; padding: 10px 20px; display: inline-flex; width: auto;">
+            Shop Crackers Now →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 6: PRODUCT DETAIL MODAL -->
+  <div class="bottom-sheet-backdrop" id="product-detail-sheet">
+    <div class="bottom-sheet">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header">
+        <div class="sheet-title" id="detail-modal-name">Product Details</div>
+        <button class="close-sheet-btn" onclick="closeSheet('product-detail-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body">
+        <div style="width: 100%; height: 180px; background: #FFFFFF; border: 1px solid var(--charcoal-700); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; padding: 10px;">
+          <img src="" id="detail-modal-img" alt="Product" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 1.3rem; font-weight: 800; color: var(--ember-400);" id="detail-modal-price">₹0</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--warm-400); text-decoration: line-through; margin-left: 6px;" id="detail-modal-mrp">MRP: ₹0</span>
+          </div>
+          <span class="discount-badge-sm" id="detail-modal-discount">0% OFF</span>
+        </div>
+
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <span class="status-badge status-badge--amber" id="detail-modal-weight">250 g</span>
+          <span class="status-badge status-badge--green" id="detail-modal-rating">★ 4.8</span>
+          <span class="status-badge status-badge--blue" id="detail-modal-brand">Standard</span>
+          <span class="status-badge status-badge--neutral" id="detail-modal-sound">LOW NOISE</span>
+        </div>
+
+        <div style="font-size: 0.75rem; color: var(--warm-300); line-height: 1.4;" id="detail-modal-desc">
+          High quality festive firecrackers.
+        </div>
+      </div>
+
+      <div class="sheet-footer" style="flex-direction: row; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; background: var(--charcoal-950); border: 1px solid var(--charcoal-700); border-radius: var(--radius-full); padding: 2px;">
+          <button style="background: none; border: none; color: var(--warm-50); width: 30px; height: 30px; font-weight: 800; cursor: pointer;" onclick="adjustDetailModalQty(-1)">-</button>
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800; width: 24px; text-align: center; color: var(--warm-50);" id="detail-modal-qty">1</span>
+          <button style="background: none; border: none; color: var(--warm-50); width: 30px; height: 30px; font-weight: 800; cursor: pointer;" onclick="adjustDetailModalQty(1)">+</button>
+        </div>
+
+        <button class="hero-btn-mobile" id="detail-modal-add-btn" style="padding: 10px 18px; font-size: 0.85rem;">
+          <span>+ Add to Cart</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 7: FILTER SHEET -->
+  <div class="bottom-sheet-backdrop" id="filter-sheet">
+    <div class="bottom-sheet">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header">
+        <div class="sheet-title">⚙️ Filter & Sort</div>
+        <button class="close-sheet-btn" onclick="toggleFilterSheet(false)">✕</button>
+      </div>
+
+      <div class="sheet-body">
+        <!-- Price Range -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between;">
+            <label class="form-label">Max Price</label>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; color: var(--ember-400);" id="price-display-val">₹5000</span>
+          </div>
+          <input type="range" id="price-slider-input" min="50" max="5000" step="50" value="5000" style="accent-color: var(--ember-400);">
+        </div>
+
+        <!-- Sound Level -->
+        <div class="form-group">
+          <label class="form-label">Sound Level</label>
+          <div style="display: flex; gap: 6px;">
+            <button class="filter-strip-btn active" data-sound="all">All</button>
+            <button class="filter-strip-btn" data-sound="low">Low (Eco)</button>
+            <button class="filter-strip-btn" data-sound="medium">Medium</button>
+            <button class="filter-strip-btn" data-sound="high">Thunder</button>
+          </div>
+        </div>
+
+        <!-- Day / Night -->
+        <div class="form-group">
+          <label class="form-label">Time of Celebration</label>
+          <div style="display: flex; gap: 6px;">
+            <button class="filter-strip-btn active" data-daynight="all">All</button>
+            <button class="filter-strip-btn" data-daynight="day">Day Time</button>
+            <button class="filter-strip-btn" data-daynight="night">Night Visuals</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sheet-footer" style="flex-direction: row; gap: 10px;">
+        <button class="filter-strip-btn" onclick="resetAllFilters()" style="flex: 1; justify-content: center; padding: 10px;">
+          Reset All
+        </button>
+        <button class="hero-btn-mobile" onclick="toggleFilterSheet(false)" style="flex: 2; justify-content: center; padding: 10px;">
+          Apply Filters
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET 8: BLUEPRINTS VIEWER -->
+  <div class="bottom-sheet-backdrop" id="blueprints-sheet">
+    <div class="bottom-sheet" style="max-height: 92vh;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header">
+        <div class="sheet-title">Blueprint Blueprint</div>
+        <button class="close-sheet-btn" onclick="closeSheet('blueprints-sheet')">✕</button>
+      </div>
+
+      <div class="sheet-body" style="padding: 10px; overflow-y: auto;">
+        <img id="blueprints-img-viewer" src="" alt="Blueprint" style="width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--charcoal-700);">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2-STEP SECURITY AUTHORIZATION GATE MODAL (ADMIN / RIDER) -->
+  <div class="bottom-sheet-backdrop" id="secure-gate-modal">
+    <div class="bottom-sheet" style="max-height: 90vh;">
+      <div class="sheet-drag-handle"></div>
+
+      <div class="sheet-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.25rem;">🔐</span>
+          <div>
+            <div class="sheet-title" id="gate-modal-title">Staff Authorization Gate</div>
+            <div style="font-size: 0.68rem; color: #9CA3AF;" id="gate-modal-subtitle">Restricted Operations Protocol</div>
+          </div>
+        </div>
+        <button class="close-sheet-btn" onclick="PORTALS.closeGate()">✕</button>
+      </div>
+
+      <div class="sheet-body" style="padding: 16px; display: flex; flex-direction: column; gap: 14px;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #141414; padding: 10px 14px; border-radius: 8px; border: 1px solid #282828;">
+          <div style="font-size: 0.72rem; color: #9CA3AF;">ACCESS LEVEL:</div>
+          <span class="status-badge" id="gate-role-badge" style="font-size: 0.68rem; padding: 3px 10px; border-radius: 12px; font-weight: 800;">ADMIN ACCESS</span>
+        </div>
+
+        <!-- STEP 1: ID & Passcode -->
+        <div id="gate-step-1" style="display: block;">
+          <div style="font-size: 0.75rem; color: #D1D5DB; margin-bottom: 10px;">
+            Step 1 of 2: Enter Master Operator ID & Security Passkey
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <label class="form-label" style="font-size: 0.7rem;">Operator ID / Email / Phone</label>
+              <input type="text" id="gate-id-input" class="form-input" style="font-family: var(--font-mono); font-size: 0.85rem;" placeholder="Operator ID">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.7rem;">Master Passkey / PIN</label>
+              <input type="password" id="gate-pass-input" class="form-input" style="font-family: var(--font-mono); font-size: 1rem; letter-spacing: 2px;" placeholder="Enter Security Password">
+            </div>
+
+            <div id="gate-step1-error" style="color: #EF4444; font-size: 0.72rem; display: none;"></div>
+
+            <button class="hero-btn-mobile" onclick="PORTALS.verifyStep1()" style="width: 100%; justify-content: center; padding: 12px; margin-top: 4px; font-weight: 700;">
+              Verify Credentials & Send OTP ➡️
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Live 6-Digit OTP Dispatched to WhatsApp & Email -->
+        <div id="gate-step-2" style="display: none;">
+          <div style="font-size: 0.75rem; color: #D1D5DB; margin-bottom: 6px;">
+            Step 2 of 2: Two-Factor WhatsApp & Email OTP Verification
+          </div>
+          <div style="font-size: 0.68rem; color: #9CA3AF; margin-bottom: 12px;" id="gate-otp-target-desc">
+            Security OTP sent to registered channels
+          </div>
+
+          <!-- Dispatched OTP Status to WhatsApp & Email -->
+          <div id="gate-otp-dispatch-card" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 800; color: #34D399;">
+              <span>📲</span> <span>OTP Dispatched via WhatsApp & Email</span>
+            </div>
+            <div style="font-size: 0.7rem; color: #D1D5DB; line-height: 1.4;" id="gate-otp-destination-text">
+              A 6-digit confirmation code was sent to WhatsApp (+91 9392819362) and Email (bandirohan43@gmail.com). Enter it below.
+            </div>
+            <div style="display: flex; gap: 6px; margin-top: 2px;">
+              <a id="gate-otp-whatsapp-btn" href="#" target="_blank" style="flex: 1; background: #22C55E; color: #000; font-weight: 800; font-size: 0.7rem; padding: 6px 10px; border-radius: 6px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                <span>💬</span> Open WhatsApp
+              </a>
+              <a id="gate-otp-email-btn" href="#" target="_blank" style="flex: 1; background: rgba(139, 92, 246, 0.25); border: 1px solid #7C3AED; color: #DDD6FE; font-weight: 700; font-size: 0.7rem; padding: 6px 10px; border-radius: 6px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                <span>✉️</span> Check Email
+              </a>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <label class="form-label" style="font-size: 0.7rem;">Enter 6-Digit OTP</label>
+              <input type="text" id="gate-otp-input" class="form-input" maxlength="6" placeholder="• • • • • •" style="text-align: center; font-family: var(--font-mono); font-size: 1.4rem; letter-spacing: 6px; font-weight: 800; color: #FFB800;">
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: #9CA3AF;">
+              <span id="gate-otp-timer">Resend OTP in 30s</span>
+              <span style="font-size: 0.65rem; color: #6B7280;">Secure 2FA Enforced</span>
+            </div>
+
+            <div id="gate-step2-error" style="color: #EF4444; font-size: 0.72rem; display: none;"></div>
+
+            <button class="btn-gold-action" onclick="PORTALS.verifyStep2()" style="width: 100%; justify-content: center; padding: 12px; margin-top: 4px; font-weight: 800; font-size: 0.88rem;">
+              Confirm OTP & Unlock Portal 🔓
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING PERSISTENT BOTTOM CART BUTTON (Direct One-Click Checkout Access) -->
+  <div id="mrs-floating-cart-bar" class="mrs-floating-cart-bar" onclick="openCartSheetDirectly()" style="display: none;">
+    <div class="mrs-floating-cart-content">
+      <div class="mrs-floating-cart-left">
+        <div class="mrs-floating-cart-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="floating-cart-item-count">0 Items</span>
+        </div>
+        <div class="mrs-floating-cart-sep">•</div>
+        <div class="mrs-floating-cart-total" id="floating-cart-total-price">₹0</div>
+      </div>
+      <div class="mrs-floating-cart-right">
+        <span>View Cart</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Supabase JS Client & Backend Services -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="backend.js"></script>
+  <!-- App Core Engine -->
+  <script src="app.js"></script>
+  <script src="portals.js"></script>
+</body>
+</html>
